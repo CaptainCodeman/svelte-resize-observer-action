@@ -1,0 +1,1 @@
+const r=new WeakMap;let s;function b(e,t){return s=s||new ResizeObserver(c=>{for(const n of c){const o=r.get(n.target);o&&o(n)}}),r.set(e,t),s.observe(e),{destroy(){s.unobserve(e),r.delete(e)}}}export{b as r};
