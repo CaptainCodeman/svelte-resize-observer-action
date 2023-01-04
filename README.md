@@ -66,21 +66,21 @@ Apply to the element passed in to your `use:action` and call the `destroy` metho
 type Render = (ctx: CanvasRenderingContext2D) => void
 
 export function panzoom(canvas: HTMLCanvasElement, render: Render) {
-	const ctx = canvas.getContext('2d')!
+  const ctx = canvas.getContext('2d')!
 
-	// use resize action to watch element size
-	const resizeManager = resize(canvas, entry => {
-		// handle canvas size change and re-render
-		render(ctx)
-	})
+  // use resize action to watch element size
+  const resizeManager = resize(canvas, entry => {
+    // handle canvas size change and re-render
+    render(ctx)
+  })
 
-	// rest of use:action implementation
+  // rest of use:action implementation
 
-	return {
-		destroy() {
-			// remember to call destroy when this action is destroyed
-			resizeManager.destroy()
-		},
-	}
+  return {
+    destroy() {
+      // remember to call destroy when this action is destroyed
+      resizeManager.destroy()
+    },
+  }
 }
 ```
